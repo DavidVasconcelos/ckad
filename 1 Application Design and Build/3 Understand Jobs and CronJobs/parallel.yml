@@ -3,7 +3,10 @@ kind: Job
 metadata:
   name: parallel
 spec:
-  backoffLimit: 4
+  activeDeadlineSeconds: 45
+  completions: 8
+  parallelism: 2
+  backoffLimit: 10
   template:
     spec:
       restartPolicy: OnFailure

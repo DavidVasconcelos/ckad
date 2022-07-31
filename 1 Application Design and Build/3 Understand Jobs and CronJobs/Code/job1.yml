@@ -3,14 +3,14 @@ kind: Job
 metadata:
   name: ckad1
 spec:
-  activeDeadlineSeconds: 10
-  ttlSecondsAfterFinished: 120
+  activeDeadlineSeconds: 10 # If means the pod still running after 10 seconds axe it!
+  ttlSecondsAfterFinished: 120 # after 120 seconds any pod still running will be finished
   completions: 5
   parallelism: 1
-  backoffLimit: 4
+  backoffLimit: 4 # is exponencial 10, 20, 40, 80 a cap at 6 minutes, 360 seconds
   template:
     spec:
-      restartPolicy: Never
+      restartPolicy: Never # Or OnFailure, for troubleshooting might set to never
       containers:
       - name: ctr
         image: alpine:latest

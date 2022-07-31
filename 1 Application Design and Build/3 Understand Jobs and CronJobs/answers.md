@@ -2,7 +2,6 @@
 
 The following lists each question and accompanying answer.
 
-
 ### Task 1
 
 There's a Job defined in the `parallel.yml` file. Configure it so that a total of 8 Pods run, two at a time.
@@ -40,7 +39,7 @@ Configure `spec.backoffLimit` to `10` and save your changes.
 
 ### Task 3
 
-Reconfigure the Job defined in `parallel.yml` so that the job will be terminated if it's still running after 45 seconds. 
+Reconfigure the Job defined in `parallel.yml` so that the job will be terminated if it's still running after 45 seconds.
 
 Re-deploy the Job and ensure the updated configuration terminates the Job after 45 seconds.
 
@@ -59,7 +58,7 @@ Wait at least 45 seconds and then run a `kubectl describe` command against the J
 
 ### Task 4
 
-There's a CronJob defined in the `scheduled.yml` file. Re-configure it so that the job runs every 2 two minutes. 
+There's a CronJob defined in the `scheduled.yml` file. Re-configure it so that the job runs every 2 two minutes.
 
 Deploy the file and ensure the schedule works as expected.
 
@@ -79,7 +78,7 @@ Run a `kubectl get cronjobs` to ensure the CronJob is successfully running and a
 
 ### Task 5
 
-Reconfigure the CronJob defined in `scheduled.yml` so that new Pods new Pods will not start if existing ones are still running.
+Reconfigure the CronJob defined in `scheduled.yml` so that new Pods will not start if existing ones are still running.
 
 Re-deploy the updated configuration.
 
@@ -93,6 +92,3 @@ Run the following commands to terminate the existing CronJob and deploy the upda
 kubectl delete -f scheduled.yml
 kubectl apply -f scheduled.yml
 ```
-
-
-
