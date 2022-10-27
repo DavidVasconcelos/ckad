@@ -13,6 +13,12 @@ spec:
       labels:
         app: backend
     spec:
+      initContainers:
+      - name: check-db-ready
+        image: postgres
+        command: ['sh', '-c',
+        'until pg_isready -h postgres -p 5432;
+        do echo waiting for database; sleep 2; done']
       containers:
         - name: backend
           envFrom:

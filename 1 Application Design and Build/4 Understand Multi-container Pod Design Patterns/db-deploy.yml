@@ -21,4 +21,7 @@ spec:
                 name: db-access
           ports:
             - containerPort: 5432
-
+        - name: adminer # sidecar postgres web ui
+          image: adminer
+          ports:
+            - containerPort: 8080
