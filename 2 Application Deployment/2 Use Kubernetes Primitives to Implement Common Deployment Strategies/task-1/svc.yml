@@ -1,0 +1,17 @@
+# kubectl expose deploy nginx-deploy --port=9000 --target-port=80 --type=NodePort --name=nginx-svc --dry-run=client -o yaml > svc.yml 
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx-deploy
+  name: nginx-svc
+spec:
+  ports:
+  - port: 9000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx-deploy
+  type: NodePort
+status:
+  loadBalancer: {}

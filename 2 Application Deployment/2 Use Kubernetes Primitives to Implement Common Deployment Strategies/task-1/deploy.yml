@@ -1,0 +1,25 @@
+# kubectl create deploy nginx-deploy --image=nginx:stable-alpine --replicas=4 --port=80 --dry-run=client -o yaml > deploy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deploy
+  name: nginx-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-deploy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginx-deploy
+    spec:
+      containers:
+      - image: nginx:stable-alpine
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}

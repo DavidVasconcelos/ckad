@@ -6,10 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
+      app: customer-app
       track: canary
   template:
     metadata:
       labels:
+        app: customer-app
         track: canary
     spec:
       containers:

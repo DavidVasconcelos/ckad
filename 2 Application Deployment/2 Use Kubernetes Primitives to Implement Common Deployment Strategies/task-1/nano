@@ -1,0 +1,1 @@
+KUBE_EDITOR="nano" kubectl edit deploy/nginx-deploy
