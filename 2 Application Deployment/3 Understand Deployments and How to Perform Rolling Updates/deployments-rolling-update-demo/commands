@@ -1,0 +1,26 @@
+# Check status
+kubectl rollout status -f file.deployment.yml
+
+# Apply with record
+kubectl apply -f file.deployment.yml --record
+
+# Rollback a deployment
+kubectl rollout undo -f file.deployment.yml
+
+# History
+kubectl rollout history deploy xyz
+
+# Rollback to a specific version
+kubectl rollout undo -f file.deployment.yml --to-revision=2
+
+# Add annotation
+kubectl annotate deploy xyz kubernetes.io/change-cause="Changed ti nginx:1.23.1" --overwrite=true
+
+# Using JQ
+kubectl get deploy web-app -o json | jq '.metadata.annotations."kubernetes.io./change-cause"'
+
+# Using grep
+kubectl get pods -o yaml | grep nginx:1.23.1-alpine
+
+# Using grep & work count
+kubectl get pods -o yaml | grep nginx:1.23.1-alpine | wc -l
