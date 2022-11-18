@@ -1,0 +1,41 @@
+# Search charts
+helm search hub nginx
+
+# Search charts with help
+helm search hub nginx -h
+
+# Search charts with show repo URL
+helm search hub nginx --list-repo-url -o yaml
+
+# Adding a new repo
+helm repo add bitnami https://charts.bitnami.com/bitnami # name and url
+
+# Search charts on repos
+helm search repo nginx
+
+# Show charts values
+helm show values bitnami/nginx
+
+# Install charts
+helm install my-nginx bitnami/nginx
+
+#List charts
+helm list
+
+# Unistall charts
+helm uninstall my-nginx
+
+# Install charts on namespace
+helm install nginx-app bitnami/nginx -n dev
+
+# Pull charts
+helm pull --untar --version=15.0.9 bitnami/wordpress
+
+# Install charts with values
+helm install wordpress bitnami/wordpress --values=wordpress-values.yml -n dev --version=15.0.9
+
+# Unistall charts on namespace
+helm un wordpress -n dev
+
+# Upgrade charts on namespace
+helm upgrade nginx-app bitnami/nginx --version=13.1.8 -n dev
