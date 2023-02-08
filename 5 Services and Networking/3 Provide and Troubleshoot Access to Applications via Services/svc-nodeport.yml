@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-port
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30001 #port to outside world
+    port: 9000
+    targetPort: 8080
+  selector:
+    course: ckad
+  ipFamilyPolicy: PreferDualStack
+ 

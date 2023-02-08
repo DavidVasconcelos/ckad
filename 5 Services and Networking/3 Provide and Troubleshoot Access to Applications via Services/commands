@@ -1,0 +1,21 @@
+# Jump Pod
+kubectl run jump --rm -it --image=nigelpoulton/curl:1.0 bash
+
+#Curl to service
+curl cluster-ip:9000
+
+#Nodeport
+minikube ip 
+
+# On browser
+$minikubeIp:30001
+
+#Show lables
+kgp --show-labels
+
+#Grep pod IP
+kdp svc-test-XXXXXXX | grep IP
+
+#Check dns on pod
+Run jump pod
+cat /etc/resolv.conf
