@@ -21,9 +21,6 @@ spec:
         do echo waiting for database; sleep 2; done']
       containers:
         - name: backend
-          envFrom:
-            - configMapRef:
-                name: db-access
           env:
             - name: DATABASE_URL
               value: "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/$(POSTGRES_DB)"
